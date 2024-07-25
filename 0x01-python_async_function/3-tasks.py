@@ -1,29 +1,25 @@
 #!/usr/bin/env python3
 
+"""Module that contains a function takes an integer max_delay
+and returns a asyncio.Task.
+"""
 
 import asyncio
-
-
-''' Import wait_random from 0-basic_async_syntax.
-
-    Write a function (do not create an async function, use the regular
-    function syntax to do this) task_wait_random that takes an integer
-    max_delay and returns a asyncio.Task.
-'''
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
-    '''A function that creates a task for the scheduler'''
+    """
+    task_wait_random is a function that takes an integer max_delay
+    and returns an asyncio.Task.
 
-    wait_random = __import__('0-basic_async_syntax').wait_random
+    Args:
+      max_delay (int): The maximum delay in seconds.
 
+    Returns:
+      asyncio.Task: An asyncio.Task object that represents the
+      execution of the wait_random function with the given max_delay.
+
+    """
+    # Create a task using asyncio.create_task() and return it
     return asyncio.create_task(wait_random(max_delay))
-
-
-if __name__ == '__main__':
-    async def test(max_delay: int) -> float:
-        task = task_wait_random(max_delay)
-        await task
-        print(task.__class__)
-
-    asyncio.run(test(5))
